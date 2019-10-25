@@ -1,0 +1,97 @@
+---
+layout: default
+title: Home Page
+---
+<!-- header VIDEO -->
+<div class="headerVideo" >
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+      	<source src="images/My Video 1.mp4" type="video/mp4">
+    </video>
+</div>
+<!-- header VIDEO END-->
+<!-- ABOUT US -->
+    <section id="about-section">
+        <div class="site-section">
+	        <div class="container">
+		        <div class="row">
+		            <div class="col-md-15 pr-md-5 mr-auto">
+			            <h2 class="line-bottom" >WELCOME TO SORAKO OFF-ROAD</h2>
+			            <p>2015年に設立され、モンゴルの主要なエンデューロツアーオペレーターになりました。 2017年後半、ハスクバーナバイクの公式輸入業者およびディーラーになりました。これにより、完璧に訓練されたスタッフとサービスを含む、モンゴル全体で最高の機器が保証されます。 今年の夏、25か国以上から140人近いライダーが来場しているため、今シーズンは満席です。2020年シーズンの販売が開始されました。スポットを十分に早く獲得し、魔法の体験に参加してください。 5月15日までに到着した予約については、ツアーの合計金額に対してアーリーバード料金が20％オフになります。 モンゴル-ユニークな訪問者のためのユニークな目的地。</p>
+		            </div>
+		        </div>
+	        </div>
+        </div>
+    </section>
+<!-- ABOUT US END --> 
+<!-- TOUR START -->
+<!-- <div class="container-fluid"></div> -->
+<section id="tour-section" style="margin-top: 20px;">
+<!-- <h4 class="text-center"><b>ツアーガイド</b></h4> -->
+	<div class="container-fluid">
+        <div class="row align-items-stretch">          	
+		{% for tour_item in site.tour %}
+		 	<div class="col-md-14 mb-5 mb-lg-5 col-lg-3">
+		     	<div class="service-2 ">
+		            <div class="svg img__wrap">
+						<a href="{{ tour_item.link }}">
+							<img src="{{ tour_item.image_path }}" class="img-responsive" alt="">
+							 <div class="img__description_layer">
+							   		<p class="img__description container" style="color: white;"><b>{{ tour_item.category }}</b><br>
+							   		{{ tour_item.project_title }}
+							   		</p>
+							  	</div>
+							<h3 style="margin-left: 10px; margin-top: 10px;
+							">{{ tour_item.category }}</h3> 
+						</a>
+						<p><b class="border-top">{{ tour_item.project_name }}</b></p>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+		</div>
+	</div> 
+</section>
+<!--TOURS END -->
+<!-- Happy user -->
+<section id="q&a-section" style="margin-top: 40px;">
+	<h4 class="  text-center"><b>お客様の声</b></h4>
+  	<div class="container testimony-section border-top">
+        <div class="carousel-testimony owl-carousel" style="margin-top: 20px;">
+       		{% for happyUser_item in site.happyUser %}
+            <div class="item">   
+			 	<div class="testimony-wrap py-4">
+                    <div class="text">
+                    	<p class="mb-4"><b>{{ happyUser_item.spoken }}</b></p>
+                    	<div class="d-flex align-items-center">
+                        	<div class="user-img" style="background-image: url({{ happyUser_item.image_path }})">
+                        	</div>
+	                        <div class="pl-3">
+		                        <p class="name">{{ happyUser_item.user_name }} </p>
+		                        <span class="position">{{ happyUser_item.user_role  }}</span>
+	                        </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>	
+	</div>	 
+</section>
+<!-- Happy user END-->
+<!-- GALLERY -->
+<section id="gallery-section" style="margin-top: 40px;">
+    <h4 class="text-center"><b>写真ギャラリー</b></h4>
+    <div class="container text-center border-top"> 
+      <!-- FIRST ROW -->
+     	 <div class="row hes-gallery" style="margin-top: 40px;" >
+	        {% for gallery_item in site.gallery %}
+	        <div class="col-md-6 mb-5 mb-lg-5 col-lg-2 col-md-2">
+	            <div class="project-item">  
+	             	<img src="{{ gallery_item.image_path }}" alt="image1" data-subtext="{{ gallery_item.tailbar }}" class="img-fluid">
+	            </div>   
+	        </div>
+	        {% endfor %}
+     	</div>
+    </div>
+</section>  
+<!--Galary end -->

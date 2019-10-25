@@ -1,0 +1,12 @@
+collections:
+  tour:
+    output: true
+    permalink: /tour/:path/
+
+  happyUser:
+    output: true
+    permalink: /happyUser/:path/ 
+  
+  gallery:
+    output: true
+    permalink: /gallery/:path/      
