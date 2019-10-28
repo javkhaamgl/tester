@@ -59,10 +59,10 @@ function GetMap()
 
      // Add a pin to the map
     var pin1 = new Microsoft.Maps.Pushpin(loc1,{
-        icon: 'images/map_icons/airplane.png'
+        icon: 'assets/images/map_icons/airplane.png'
         });
     var pin2 = new Microsoft.Maps.Pushpin(loc2,{
-        icon: 'images/map_icons/airplane.png'
+        icon: 'assets/images/map_icons/airplane.png'
         });
  
     // Create a polyline
@@ -101,7 +101,7 @@ function directionsError(e) {
 
 function AddData() {
   var pin1 = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(47.852887, 106.763013),{
-        icon: 'images/map_icons/start.png',
+        icon: 'assets/images/map_icons/start.png',
         title: 'start'
         });
   pin1.Title =  "チンギスハーン国際空港に到着後";
@@ -112,7 +112,7 @@ function AddData() {
   dataLayer.push(pin1);
 
   var pin2 = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(47.923970, 106.937374),{
-        icon: 'images/map_icons/hotel.png',
+        icon: 'assets/images/map_icons/hotel.png',
         title: 'ホテル'
         });
   pin2.Title = 'ホテル';
@@ -121,7 +121,7 @@ function AddData() {
   dataLayer.push(pin2);
 
   var pin3 = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(47.845263, 106.789952),{
-        icon: 'images/map_icons/airplane.png',
+        icon: 'assets/images/map_icons/airplane.png',
         title: 'チンギスハーン国際空港'
         });
   pin3.Title = "ウランバートル⇨モンゴルの東部ドルノド県チョイバルサン市まで✈️で1.5時間";
@@ -130,7 +130,7 @@ function AddData() {
   dataLayer.push(pin3);
 
   var pin4 = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(43.604722, 104.370552),{
-        icon: 'images/map_icons/airplane.png',
+        icon: 'assets/images/map_icons/airplane.png',
         title: 'チンギスハーン国際空港'
         });
   pin4.Title = "ダランザドガド市⇨バヤンザグ";

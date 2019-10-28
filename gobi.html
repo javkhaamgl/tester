@@ -18,14 +18,16 @@ title: Gobi
 			<!-- ツアー概要＆ポイント -->
     			<div style="margin-top: 20px;">
     				<h5 class=" border-top"></h5>
-		    	 	<h5 class="line-bottom"><b>ツアー概要＆ポイント</b></h5>
-		    		<p class="yote"><b>大きさで世界第４位を誇るモンゴルのゴビ砂漠は首都ウランバートルから南部に約600キロ離れた所に位置する。砂漠でありながらも緑の草原地帯が多いのが特徴です。このツアーで訪れる：</b>
+    				{% for gobiTitle in site.data.gobiTitle %}
+		    	 	<h5 class="line-bottom"><b>{{gobiTitle.pount}}</b></h5>
+		    		<p class="yote"><b>{{gobiTitle.content}}</b>
 		    			<ul class="text-right" style="margin-left: 60px;">
-		    			 	<li class="yote1" ><b>バヤンザグは世界で初めて恐竜の卵の入った巣の化石を発見した場所。その発見により恐竜が卵で子孫を残すことが証明されました。そのためバヤンザクは恐竜化石の聖地としても知られています。</b></li>
-			                <li class="yote1"><b>モルツォグ砂漠及びホンゴル砂漠は南ゴビ砂漠で一番大きな砂山です。自分のレベルに合わせて砂山をオフロードバイクで挑戦して下さい。</b></li>
-			                <li class="yote1"><b>ヨリーンアム渓谷はゴビ砂漠観光で最も人気のスポットでダランザドガド市から４０キロの位置にあります。標高が約2200mという高いため夏でも涼しく、トレッキングにも人気の場所。夏には高山植物が咲き乱れ、砂漠とは思えない景色を堪能できます。古くからゴビ砂漠に暮らす遊牧民たちの文化と360度何もない風景と降るような星空は、きっとあなたの世界観、人生観を変えるはず。そんな地球のドラマを感じるオフロードバイクツーリングにあなたも出かけてみませんか？</b></li>
+		    			 	<li class="yote1" ><b>{{gobiTitle.content1}}</b></li>
+			                <li class="yote1"><b>{{gobiTitle.content2}}</b></li>
+			                <li class="yote1"><b>{{gobiTitle.content3}}</b></li>
 		                </ul> 	
 		            </p>	
+		          	 {% endfor %}
 		   		</div>
 			<!-- ツアー概要＆ポイント END -->
 			<!-- 日程表 -->
@@ -39,16 +41,17 @@ title: Gobi
 								<th class="yote-header" style="width: 85%;">行動内容</th>
 								<th class="yote-header" style="width: 5%;" >移動手段</th>
 								<th class="yote-header" style="width: 5%;">食事</th>
-								<th class="yote-header" style="width: 5%;">宿泊</th>
+								<th class="yote-header" style="width: 10%;">宿泊</th>
 				 			</tr>
 						</thead>
 						<tbody>
 							{% for schedule in site.data.schedule %}	
 							<tr>
-								<td class="yote"><h6>{{ schedule.startday }}</h6></td>
+								<td class="yote"><h6>{{ schedule.day }}</h6></td>
 								<td class="yote"><b>{{ schedule.expenses }}</b></td>
 								<td class="yote">
-									<img src="images/logo/plane.png">
+									<img src="{{ schedule.transportation }}">
+									<img src="{{ schedule.transportation1 }}">
 								</td> 
 								<td class="yote">
 									<table>
@@ -69,17 +72,17 @@ title: Gobi
 											</th>
 										</tr>
 									</table>	
-								<td class="yote">
-									<img src="images/logo/hotel.png" >
-								</td>
+								<td class="yote"><img src="{{ schedule.Lodging }}"></td>
 							</tr>
 							{% endfor %}  
 						</tbody>
 					</table>
 					<div>
-						<p style="font-size: 13px;">※ 交通事情や天候条件により、日程の変更を余儀なくされる場合があります。ご参加の皆様には特殊地域での旅行ということを事前にご了承いただいた上でご参加いただきますようお願い申し上げます。</p>
-						<p style="font-size: 13px;">※ 添乗員は同行しませんが、現地にて日本語係員が同行します。</p>
-						<p style="font-size: 13px;">※ 旅券有効残存期間は入国時より6ヶ月以上。</p>	
+						{% for gobiTitle in site.data.gobiTitle %}
+						<p style="font-size: 13px;"> {{ gobiTitle.information1 }}</p>
+						<p style="font-size: 13px;"> {{ gobiTitle.information2 }}</p>
+						<p style="font-size: 13px;"> {{ gobiTitle.information3 }}</p>
+						{% endfor %}	
 					</div>
 					<!-- END --><!-- QAA LINK START -->
 					<div class="row container-fluid " >
@@ -156,11 +159,11 @@ title: Gobi
   	<div class="row hes-gallery">
 		<div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel">
             <div class="MultiCarousel-inner ">
-                {% for gallery_item in site.gallery %}
+                {% for gallery in site.data.gallery %}
                 <div class="item">
                 	<div class="col-md-6 mb-5 mb-lg-5  col-lg-12">
                         <div class="project-item">  
-				           <img src="{{ gallery_item.image_path }}" alt="image1" data-subtext="{{ gallery_item.tailbar }}" class="img-fluid">
+				           <img src="{{ gallery.image_path }}" alt="image1" data-subtext="{{ gallery.tailbar }}" class="img-fluid">
 				        </div>  
                     </div>    
                 </div>
@@ -177,21 +180,21 @@ title: Gobi
 	<h4 class="text-center"><b>ツアーガイド</b></h4>
 	<div class="container-fluid">
 	    <div class="row align-items-stretch">          	
-		{% for tour_item in site.tour %}
+		{% for tour in site.data.tour %}
 		 	<div class="col-md-14 mb-5 mb-lg-5 col-lg-2">
 		     	<div class="service-2 ">
 		            <div class="svg img__wrap">
-						<a href="{{ tour_item.link }}">
-							<img src="{{ tour_item.image_path }}" class="img-responsive" alt="">
+						<a href="{{ tour.link }}">
+							<img src="{{ tour.image_path }}" class="img-responsive" alt="">
 							 <div class="img__description_layer">
-							   		<p class="img__description container" style="color: white;"><b>{{ tour_item.category }}</b><br>
-							   		{{ tour_item.project_title }}
+							   		<p class="img__description container" style="color: white;"><b>{{ tour.category }}</b><br>
+							   		{{ tour.project_title }}
 							   		</p>
 							  	</div>
 							<h3 style="margin-left: 10px; margin-top: 10px;
-							">{{ tour_item.category }}</h3> 
+							">{{ tour.category }}</h3> 
 						</a>
-						<p><b class="border-top">{{ tour_item.project_name }}</b></p>
+						<p><b>{{ tour.project_name }}</b></p>
 					</div>
 				</div>
 			</div>
