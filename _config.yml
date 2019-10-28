@@ -14,4 +14,6 @@ collections:
   gobi:
     output: true
     permalink: /gobi/:path/       
-
+  my_collection:
+    output: true
+    permalink: /:collection/:name

@@ -1,4 +1,5 @@
-const HesGallery = {
+{
+ HesGallery = {
   options: {
     // Default settings
 
@@ -16,7 +17,7 @@ const HesGallery = {
   },
   version: '1.4.11'
 }
-
+}
 function HesSingleGallery(index, root) {
   this.root = root
   this.index = index
