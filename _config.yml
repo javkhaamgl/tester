@@ -17,3 +17,10 @@ collections:
   my_collection:
     output: true
     permalink: /:collection/:name
+jekyll_admin:
+  hidden_links:
+    - posts
+    - pages
+    - staticfiles
+    - datafiles
+    - configuration    

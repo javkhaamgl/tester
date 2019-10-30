@@ -58,7 +58,7 @@ ul.inner{
 		        </div>	
 	          	<h4 style="margin-top: 100px;"><b>お申し込みについて</b></h4>
 					<ul class="qa-li">
-						<p>{% for qaa in site.data.qaa %}</p>
+						{% for qaa in site.data.qaa %}
 						<li>
 						    <a class="toggle" href="javascript:void(0);">{{ qaa.question }}</a>
 						    <ul class="inner">
